@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지뢰찾기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game">
+    <h1>지뢰찾기</h1>
+
+    <div class="toolbar">
+      <select id="difficulty">
+        <option value="easy">초급 (9x9, 지뢰 10)</option>
+        <option value="medium" selected>중급 (16x16, 지뢰 40)</option>
+        <option value="hard">고급 (30x16, 지뢰 99)</option>
+      </select>
+      <button id="newGameBtn">새 게임</button>
+    </div>
+
+    <div class="status-bar">
+      <div class="counter" id="mineCount">000</div>
+      <button id="faceBtn" class="face">🙂</button>
+      <div class="counter" id="timer">000</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="game">게임</button>
+      <button class="tab-btn" data-tab="sat">SAT 추론</button>
+    </div>
+
+    <div id="gameTab" class="tab-panel active">
+      <div id="board" class="board"></div>
+    </div>
+
+    <div id="satTab" class="tab-panel">
+      <div class="sat-layout">
+        <div id="satBoard" class="board sat-board"></div>
+        <div class="sat-panel">
+          <div class="legend">
+            <span><i class="swatch safe"></i> 확정 안전</span>
+            <span><i class="swatch mine"></i> 확정 지뢰</span>
+            <span><i class="swatch unknown"></i> 미확정</span>
+          </div>
+          <div id="satSummary" class="sat-summary"></div>
+          <div id="satWarnings" class="sat-warnings"></div>
+          <div id="satClauses" class="sat-clauses"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
